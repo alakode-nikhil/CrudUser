@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 export default function ListUsers() {
 
@@ -13,7 +14,7 @@ export default function ListUsers() {
     
   return (
     <>
-        <button className='btn btn-xl btn-primary m-2'>Create</button>
+        <Link className='btn btn-xl btn-primary m-2' to='/create'>Create</Link>
         <table class="table">
             <thead>
                 <tr>
