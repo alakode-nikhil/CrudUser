@@ -36,7 +36,7 @@ export default function ListUsers() {
                             <td>{item.email}</td>
                             <td>{item.address.city}</td>
                             <td><Link className='btn btn-warning' to={`/view/${item.id}`} >View</Link></td>
-                            <td><button className='btn btn-success'>Edit</button></td>
+                            <td><Link className='btn btn-success' to={`/edit/${item.id}`}>Edit</Link></td>
                             <td><button className='btn btn-danger'>Delete</button></td>
                         </tr>
                     ))
