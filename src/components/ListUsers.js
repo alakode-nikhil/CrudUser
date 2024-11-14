@@ -11,6 +11,19 @@ export default function ListUsers() {
     .then((response) => setData(response.data))
     .then((json) => console.log(json));
   },[data]);
+
+  const handleDelete = (id) =>{
+    fetch(`https://jsonplaceholder.typicode.com/users/${id}`, {
+        method: 'DELETE',
+      })
+      .then((respone) => {
+        if(respone.ok){
+            console.log('User Deleted')
+            setData([])
+        }
+      });
+      
+  }
     
   return (
     <>
@@ -37,7 +50,7 @@ export default function ListUsers() {
                             <td>{item.address.city}</td>
                             <td><Link className='btn btn-warning' to={`/view/${item.id}`} >View</Link></td>
                             <td><Link className='btn btn-success' to={`/edit/${item.id}`}>Edit</Link></td>
-                            <td><button className='btn btn-danger'>Delete</button></td>
+                            <td><button className='btn btn-danger' onClick={() => {handleDelete(item.id)}}>Delete</button></td>
                         </tr>
                     ))
                 }                
